@@ -4,7 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
+const expressLayouts = require('express-ejs-layouts');
 
 const spotifyRoute = require('./routes/index.route.js')
 
@@ -14,6 +14,8 @@ const spotifyRoute = require('./routes/index.route.js')
 const app = express();
 
 // view engine setup
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
