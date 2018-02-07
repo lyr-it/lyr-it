@@ -1,4 +1,4 @@
 
 module.exports.index = (req, res, next) => {
-  res.send('hola!')
+  res.render('index');
 }
