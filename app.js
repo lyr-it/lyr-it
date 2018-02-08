@@ -11,6 +11,10 @@ const spotifyRoute = require('./routes/index.route.js')
 // const index = require('./routes/index');
 // const users = require('./routes/users');
 
+
+// import dbconfig
+require('./configs/db.config');
+
 const app = express();
 
 // view engine setup
