@@ -6,15 +6,19 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
+const session = require('express-session');
+const passport = require('passport');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
+
+require('./configs/db.config');
+require('./configs/passport.config').setup(passport);
 
 const spotifyRoute = require('./routes/index.route.js')
+const auth = require('./routes/auth.route.js');
 
 // const index = require('./routes/index');
 // const users = require('./routes/users');
-
-
-// import dbconfig
-require('./configs/db.config');
 
 const app = express();
 
@@ -32,8 +36,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: process.env.COOKIE_SECRET || 'SuperSecret',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    secure: process.env.COOKIE_SECURE || false,
+    httpOnly: true
+  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60
+  })
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', spotifyRoute);
-// app.use('/users', users);
+app.use('/', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
