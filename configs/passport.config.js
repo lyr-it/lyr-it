@@ -1,5 +1,8 @@
 const SpotifyStrategy = require('passport-spotify').Strategy;
 
+const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || '';
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET || '';
+
 module.exports.setup = (passport) => {
   passport.serializeUser(function(user, done) {
     done(null, user);
@@ -45,8 +48,8 @@ module.exports.setup = (passport) => {
   // }));
 
   passport.use('spotify', new SpotifyStrategy({
-    clientID: '84b62f22773541db8be1bf34cf81d41d',
-    clientSecret: '93eab8f56e034e6fa034a12f57be1edc',
+    clientID: SPOTIFY_CLIENT_ID,
+    clientSecret: SPOTIFY_CLIENT_SECRET,
     callbackURL: 'http://localhost:3000/callback'
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
