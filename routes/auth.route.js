@@ -4,8 +4,13 @@ const authController = require('../controllers/auth.controller');
 const secure = require('../configs/passport.config');
 const passport = require('passport');
 
-// router.get('/auth/spotify', authController.login);
-router.get('/Callback', authController.loginCallback);
-router.get('/auth/spotify', passport.authenticate('spotify', {scope: ['user-read-email', 'user-read-private'], showDialog: true}));
+router.get('/auth/spotify', passport.authenticate('spotify', {scope: ['user-read-email', 'user-read-private', 'user-read-currently-playing'], showDialog: true}));
+router.get('/callback',passport.authenticate('spotify', { failureRedirect: '/'}), function(req, res) {
+  // console.log(req.user);
+  console.log(req.session)
+  res.redirect('/');
+});
+
+router.get('/logout', authController.logout);
 
 module.exports = router;
