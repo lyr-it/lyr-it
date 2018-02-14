@@ -1,20 +1,10 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const SALT_WORK_FACTOR = 10;
-
-const FIRST_ADMIN = 'ironhacker';
-const ROLE_ADMIN = 'ADMIN';
-const ROLE_GUEST = 'GUEST';
 
 const userSchema = new mongoose.Schema({
-      username: {
+      userName: {
         type: String,
         required: [true, 'Username is required'],
         unique: true
-      },
-      password: {
-        type: String,
-        required: [true, 'User needs a password']
       },
       email: {
         type: String,
@@ -25,19 +15,15 @@ const userSchema = new mongoose.Schema({
       },
       photos: {
         type: String,
-        required: false,
+        required: false
       },
       country: {
         type: String,
-        required: false,
+        required: false
       },
       age: {
         type: Number,
         required: false
-      } {
-        timestamps: true
-      });
-
-
+      }});
 
     const User = mongoose.model('User', userSchema); module.exports = User;
