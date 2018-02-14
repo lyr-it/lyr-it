@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/Lyr-it', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/Lyr-it');
 const User = require('../models/user.models.js');
 
-// Reset Data
-
-// .collection.drop();
-
-// Iteration #1
 
 const userData = [
-  { userName: 'Pocholo', email: 'mochila@ibiza.es', photos: '', country: 'ES', age: 55 },
-
+  { userName: 'Pocholo', email: 'mochila@ibiza.es', photos: '', country: 'ES', age: 55 }
 ];
 
 User.create(userData, (err, docs) => {
