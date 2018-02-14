@@ -1,8 +1,8 @@
-<p>Welcome to our house</p>
+<p>The best way to learn new languages</p>
 <a href="/auth/spotify">Login with Spotify</a>
-<a href="/logout">Logout</a>
 <% if(user){ %>
-  <p>Hello <%= user.id%></p>
+  <p class= "userId">Hello <%= user.id%></p>
 <% }else{ %>
   <p>user disconected</p>
 <% } %>
+<a href="/logout">Logout</a>

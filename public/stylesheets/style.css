@@ -1,8 +1,31 @@
 body {
+  background: #006666;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Roboto', sans-serif;
+  color: pink;
+  font-weight: 100px;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #006666;
 }
 
 a {
   color: #00B7FF;
+  font-size: 25px;
+  /* color: white; */
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+  font-size: 135px;
+  color: pink;
+  font-weight: 120;
+  text-align: center;
+  margin-bottom: inherit;
+}
+
+p.userId {
+  font-color: green;
+  font-size: 50px;
 }
