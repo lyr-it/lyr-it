@@ -1,11 +1,13 @@
 <p>The best way to learn new languages</p>
 <a href="/auth/spotify">Login with Spotify</a>
-<% if(user){ %>
-  <p class= "userId">Hello <%= user.id%></p>
-<% }else{ %>
+<% if (session.name) { %>
+  <p class= "userId">Hello <%= session.name %></p>
+<% } else { %>
   <p>user disconected</p>
 <% } %>
+
+<% if (typeof(song) !== 'undefinded') { %>
+  <p><%= songs %></p>
+<% } %>
+
 <a href="/logout">Logout</a>
-
-
-

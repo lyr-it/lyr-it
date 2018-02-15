@@ -7,13 +7,17 @@ body {
   letter-spacing: 0.3em;
   text-align: center;
   text-shadow: 0 0 3px #FF0000, 0 0 5px #006666;
-
 }
 
 a {
   color: #00B7FF;
   font-size: 25px;
   /* color: white; */
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
   text-decoration: none;
 }
 
@@ -28,4 +32,8 @@ h1.title {
 
 p.userId {
   font-size: 50px;
+}
+
+.contaier {
+  text-align: center;
 }
