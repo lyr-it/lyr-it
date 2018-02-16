@@ -29,7 +29,7 @@ module.exports.setup = (passport) => {
           if (!user) {
             const email = profile.emails ? profile.emails[0].value : null;
             user = new User({
-              name: profile.displayName,
+              name: profile.username,
               email: email,
               country: profile.country,
               social: {
