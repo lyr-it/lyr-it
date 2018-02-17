@@ -2,9 +2,10 @@
 <a href="/auth/spotify">Login with Spotify</a>
 <% if (session.name) { %>
   <p class= "userId">Hello <%= session.name %></p>
-<% if (typeof(song) !== 'undefinded') { %>
-  <p><%= songs %></p>
-<% } %>
+  <% if (typeof(song) !== 'undefinded') { %>
+    <p><%= songs.nameArtists %>, <%= songs.nameSong %></p>
+    <pre><%= songs.lyricSong %></pre>
+  <% } %>
 <% } else { %>
   <p>user disconected</p>
 <% } %>
