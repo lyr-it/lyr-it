@@ -4,7 +4,14 @@
   <p class= "userId">Hello <%= session.name %></p>
   <% if (typeof(song) !== 'undefinded') { %>
     <p><%= songs.nameArtists %>, <%= songs.nameSong %></p>
-    <pre><%= songs.lyricSong %></pre>
+    <div style="display: flex; padding: 7px">
+      <div style="margin: 0 10px">
+        <pre><%= songs.lyricSong %></pre>
+      </div>
+      <div style="margin: 0 10px">
+        <pre><%= songs.translateLyricSong %></pre>
+      </div>
+    </div>
   <% } %>
 <% } else { %>
   <p>user disconected</p>
