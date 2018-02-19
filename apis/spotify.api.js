@@ -1,5 +1,9 @@
-var l = require("lyric-get");
-var request = require('request');
+const l = require("lyric-get");
+const request = require('request');
+const translate = require('translate');
+translate.engine = 'yandex';
+translate.key = 'trnsl.1.1.20180219T151447Z.5d900ff594412061.1db5dabfffc85b50574728342afc43f32c8e8abf';
+
 module.exports.currentPlaying = (user, next) => {
   const accessToken = user.social.accessToken;
   // TODO: use request lib
@@ -24,7 +28,8 @@ module.exports.currentPlaying = (user, next) => {
     const songs = {
       nameArtists: track.item.artists[0].name,
       nameSong: track.item.name,
-      lyricSong: ""
+      lyricSong: "",
+      translateLyricSong: ""
     }
       
 
@@ -41,11 +46,16 @@ module.exports.currentPlaying = (user, next) => {
         // console.log(songs)
         // console.log(typeof(songs))
         //console.log(songs)
-        console.log(songs.lyricSong)
+        // console.log(songs.lyricSong)
+        const textLyric = songs.lyricSong.toString();
+        // console.log("texto de la variable: "+textLyric);
+        translate(textLyric, { to: 'af'}).then(text => {
+          var translate = text;
+          songs.translateLyricSong = text;
+          console.log(songs);
+          next(null, songs);
+        });        
       }
-      next(null, songs);
     });
-
-    
   });
 }
