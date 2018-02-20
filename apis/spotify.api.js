@@ -26,7 +26,7 @@ module.exports.currentPlaying = (user, next) => {
       // console.log(track.item)
       const currentSong = {
         nameArtists: track.item.artists[0].name,
-        nameSong: track.item.name,
+        nameSong: track.item.name
       }
         
   
@@ -50,6 +50,7 @@ module.exports.currentPlaying = (user, next) => {
             currentSong.translateLyricSong = text;
             // console.log(currentSong);
             next(null, currentSong);
+
           });        
         }
       });
