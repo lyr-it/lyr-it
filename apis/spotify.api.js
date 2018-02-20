@@ -29,9 +29,7 @@ module.exports.currentPlaying = (user, next) => {
       // const songs = [nameArtists, nameSong];
       const songs = {
         nameArtists: track.item.artists[0].name,
-        nameSong: track.item.name,
-        lyricSong: "",
-        translateLyricSong: ""
+        nameSong: track.item.name
       }
         
   
@@ -52,7 +50,6 @@ module.exports.currentPlaying = (user, next) => {
           const textLyric = songs.lyricSong.toString();
           // console.log("texto de la variable: "+textLyric);
           translate(textLyric, { to: 'es'}).then(text => {
-            var translate = text;
             songs.translateLyricSong = text;
             // console.log(songs);
             next(null, songs);
