@@ -2,14 +2,14 @@
 <a href="/auth/spotify">Login with Spotify</a>
 <% if (session.name) { %>
   <p class= "userId">Hello <%= session.name %></p>
-  <% if (typeof(songs) !== 'undefined') { %>
-    <p><%= songs.nameArtists %>, <%= songs.nameSong %></p>
+  <% if (typeof(currentSong) !== 'undefined') { %>
+    <p><%= currentSong.nameArtists %>, <%= currentSong.nameSong %></p>
     <div style="display: flex; padding: 7px">
       <div style="margin: 0 10px">
-        <pre><%= songs.lyricSong %></pre>
+        <pre><%= currentSong.lyricSong %></pre>
       </div>
       <div style="margin: 0 10px">
-        <pre><%= songs.translateLyricSong %></pre>
+        <pre><%= currentSong.translateLyricSong %></pre>
       </div>
     </div>
   <% } %>
