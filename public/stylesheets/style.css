@@ -64,6 +64,7 @@ pre {
 }
 
 .lyricsTrans {
+  padding: 50px;
   display: inline-flex;
 }
 
@@ -73,5 +74,6 @@ pre {
 }
 
 .footer {
+  display: inline-flex;
   letter-spacing: 0.2rem;
 }
