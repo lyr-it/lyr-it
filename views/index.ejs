@@ -1,21 +1,2 @@
-<p>The best way to learn new languages</p>
+<p class="claim">The best way to learn new languages</p>
 <a href="/auth/spotify">Login with Spotify</a>
-<% if (session.name) { %>
-  <p class= "userId">Hello <%= session.name %></p>
-  <% if (typeof(songs) !== 'undefined') { %>
-    <p><%= songs.nameArtists %>, <%= songs.nameSong %></p>
-    <div style="display: flex; padding: 7px">
-      <div style="margin: 0 10px">
-        <pre><%= songs.lyricSong %></pre>
-      </div>
-      <div style="margin: 0 10px">
-        <pre><%= songs.translateLyricSong %></pre>
-      </div>
-    </div>
-  <% } %>
-<% } else { %>
-  <p>user disconected</p>
-<% } %>
-
-
-<a href="/logout">Logout</a>

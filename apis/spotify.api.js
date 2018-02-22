@@ -14,8 +14,11 @@ module.exports.currentPlaying = (user, next) => {
       'bearer': accessToken
     }
   }, (error, res, song) => {
+    if (error) {
+      throw new Error(error)
+    }
     console.log("Si el console.log esta vacio seria de 0 y es de: "+song.length)
-    if(song.length !== 0){
+    if(song.length !== 0 && !song.error){
       // console.log('error:', error); // Print the error if one occurred
       // console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
       //console.log('body:', song); // Print the HTML for the Google homepage.
@@ -33,10 +36,10 @@ module.exports.currentPlaying = (user, next) => {
         lyricSong: "",
         translateLyricSong: ""
       }
-        
-  
+
+
       //liricas
-  
+
       l.get(songs.nameArtists, songs.nameSong, function (err, res) {
         if (err) {
           console.log(err);
@@ -56,7 +59,7 @@ module.exports.currentPlaying = (user, next) => {
             songs.translateLyricSong = text;
             // console.log(songs);
             next(null, songs);
-          });        
+          });
         }
       });
     }else{

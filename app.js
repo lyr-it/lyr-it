@@ -17,9 +17,6 @@ require('./configs/passport.config').setup(passport);
 const spotifyRoute = require('./routes/index.route.js')
 const auth = require('./routes/auth.route.js');
 
-// const index = require('./routes/index');
-// const users = require('./routes/users');
-
 const app = express();
 
 // view engine setup
@@ -59,6 +56,7 @@ app.use((req, res, next) => {
 
 app.use('/', spotifyRoute);
 app.use('/', auth);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
