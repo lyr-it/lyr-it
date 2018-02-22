@@ -1,21 +1,25 @@
 const User = require('../models/user.model');
 
 module.exports.index = (req, res, next) => {
+  res.render('index');
+};
+
+module.exports.lyrics = (req,res,next) => {
   const user = req.user;
   if (user) {
     user.getCurrentSongs((error, currentSong) => {
       if (error) {
         next(error);
       } else {
-        res.render('index', {
+        res.render('lyrics', {
           currentSong
         });
       }
     });
   } else {
-    res.render('index');
+    res.render('lyrics');
   }
-}
+};
 
 module.exports.profile = (req, res, next) => {
   const user = req.user;

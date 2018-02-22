@@ -14,7 +14,7 @@ module.exports.loginWithSpotifyCallback = (req, res, next) => {
         if (error) {
           next(error);
         } else {
-          res.redirect('/');
+          res.redirect('/lyrics');
         }
       });
     }
