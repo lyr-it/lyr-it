@@ -3,18 +3,18 @@
   <p class="userId">Hello
     <%= session.name %>
   </p>
-  <% if (typeof(songs) !== 'undefined') { %>
+  <% if (typeof(currentSong) !== 'undefined') { %>
     <div class="titleSong">
       <p class="nameArtists">
-        <%= songs.nameArtists %>,
-          <%= songs.nameSong %>
+        <%= currentSong.nameArtists %>,
+          <%= currentSong.nameSong %>
       </p>
     </div>
     <div class="lyrics">
-      <pre><%= songs.lyricSong %></pre>
+      <pre><%= currentSong.lyricSong %></pre>
     </div>
     <div class="lyricsTrans">
-      <pre><%= songs.translateLyricSong %></pre>
+      <pre><%= currentSong.translateLyricSong %></pre>
     </div>
     <% } %>
       <% } else { %>
