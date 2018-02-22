@@ -1,4 +1,4 @@
-const l = require("lyric-get");
+const apiLyric = require("lyric-get");
 const request = require('request');
 const translate = require('translate');
 translate.engine = 'yandex';
@@ -27,44 +27,39 @@ module.exports.currentPlaying = (user, next) => {
       // console.log(track.item.artists[0].name);
       // console.log(track.item.name);
       // console.log(track.item)
-      // const nameArtists = track.item.artists[0].name;
-      // const nameSong = track.item.name;
-      // const songs = [nameArtists, nameSong];
-      const songs = {
+      const currentSong = {
         nameArtists: track.item.artists[0].name,
-        nameSong: track.item.name,
-        lyricSong: "",
-        translateLyricSong: ""
+        nameSong: track.item.name
       }
 
 
       //liricas
-
-      l.get(songs.nameArtists, songs.nameSong, function (err, res) {
+  
+      apiLyric.get(currentSong.nameArtists, currentSong.nameSong, function (err, res) {
         if (err) {
           console.log(err);
         }
         else {
           // console.log(res);
           // console.log(typeof(res));
-          songs.lyricSong = res;
-          // console.log(songs)
-          // console.log(typeof(songs))
-          // console.log(songs)
-          // console.log(songs.lyricSong)
-          const textLyric = songs.lyricSong.toString();
+          currentSong.lyricSong = res;
+          // console.log(currentSong)
+          // console.log(typeof(currentSong))
+          // console.log(currentSong)
+          // console.log(currentSong.lyricSong)
+          const textLyric = currentSong.lyricSong.toString();
           // console.log("texto de la variable: "+textLyric);
           translate(textLyric, { to: 'es'}).then(text => {
-            var translate = text;
-            songs.translateLyricSong = text;
-            // console.log(songs);
-            next(null, songs);
-          });
+            currentSong.translateLyricSong = text;
+            // console.log(currentSong);
+            next(null, currentSong);
+
+          });        
         }
       });
     }else{
-      console.log("El tipo de songs es: "+typeof(songs))
-      next(null, songs)
+      console.log("El tipo de currentSong es: "+typeof(currentSong))
+      next(null, currentSong)
     }
   });
 }
