@@ -40,6 +40,9 @@ module.exports.currentPlaying = (user, next) => {
           console.log(err);
         }
         else {
+          let language = user.language;
+          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: "+typeof(language))
+          console.log(language)
           // console.log(res);
           // console.log(typeof(res));
           currentSong.lyricSong = res;
@@ -49,7 +52,7 @@ module.exports.currentPlaying = (user, next) => {
           // console.log(currentSong.lyricSong)
           const textLyric = currentSong.lyricSong.toString();
           // console.log("texto de la variable: "+textLyric);
-          translate(textLyric, { to: 'es'}).then(text => {
+          translate(textLyric, { to: language}).then(text => {
             currentSong.translateLyricSong = text;
             // console.log(currentSong);
             next(null, currentSong);
