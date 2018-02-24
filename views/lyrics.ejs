@@ -1,25 +1,28 @@
-<p class="claim">The best way to learn new languages</p>
-<% if (session.name) { %>
-  <p class="userId">Hello
-    <%= session.name %>
-  </p>
-  <% if (typeof(currentSong) !== 'undefined') { %>
-    <div class="titleSong">
-      <p class="nameArtists">
-        <%= currentSong.nameArtists %>,
-          <%= currentSong.nameSong %>
-      </p>
-    </div>
-    <div class= "row">
-    <div class="col lyrics">
-      <pre><%= currentSong.lyricSong %></pre>
-    </div>
-    <div class="col lyricsTrans">
-      <pre><%= currentSong.translateLyricSong %></pre>
-    </div>
-    </div>
-    <% } %>
-      <% } else { %>
-        <p>user disconected</p>
-        <% } %>
-          <a href="/logout" class="logout">Logout</a>
+<div class="containerLyrics">
+  <p class="claim">The best way to learn new languages</p>
+  <% if (session.name) { %>
+    <p class="userId">Hello
+      <%= session.name %>
+    </p>
+    <% if (typeof(currentSong) !== 'undefined') { %>
+      <div class="titleSong">
+        <p class="nameArtists"><i>You're listening to...</i>
+          <%= currentSong.nameArtists %>,
+            <%= currentSong.nameSong %>
+        </p>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-6">
+          <pre><%= currentSong.lyricSong %></pre>
+        </div>
+        <div class="col-6">
+          <pre><%= currentSong.translateLyricSong %></pre>
+        </div>
+      </div>
+      </div>
+      <% } %>
+        <% } else { %>
+          <p>user disconected</p>
+          <% } %>
+          <a href="/profile" class="editProfile"> Edit your profile </a>
+            <a href="/logout" class="logout">Logout</a>
