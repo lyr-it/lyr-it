@@ -2,7 +2,7 @@
   <p class="claim">The best way to learn new languages</p>
   <% if (session.name) { %>
     
-    <a href=""><img class="rounded-circle" src="<%= session.photos %>" alt=""></a>
+    <a href=""><img class="rounded-circle" src="<%= user.photos %>" alt=""></a>
     <p class="userId">Hello
       <%= session.name %>
     </p>

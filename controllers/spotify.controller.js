@@ -13,7 +13,8 @@ module.exports.lyrics = (req, res, next) => {
         next(error);
       } else {
         res.render('lyrics', {
-          currentSong
+          currentSong,
+          user
         });
       }
     });
