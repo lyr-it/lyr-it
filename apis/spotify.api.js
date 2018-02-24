@@ -1,8 +1,8 @@
 const apiLyric = require("lyric-get");
 const request = require('request');
 const translate = require('translate');
-translate.engine = 'yandex';
-translate.key = 'trnsl.1.1.20180219T151447Z.5d900ff594412061.1db5dabfffc85b50574728342afc43f32c8e8abf';
+translate.key = process.env.TRANSLATE_KEY|| '';
+translate.engine = process.env.TRANSLATE_ENGINE|| '';
 
 module.exports.currentPlaying = (user, next) => {
   const accessToken = user.social.accessToken;
@@ -34,7 +34,7 @@ module.exports.currentPlaying = (user, next) => {
 
 
       //liricas
-  
+
       apiLyric.get(currentSong.nameArtists, currentSong.nameSong, function (err, res) {
         if (err) {
           console.log(err);
@@ -57,7 +57,7 @@ module.exports.currentPlaying = (user, next) => {
             // console.log(currentSong);
             next(null, currentSong);
 
-          });        
+          });
         }
       });
     }else{
