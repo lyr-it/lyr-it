@@ -1,35 +1,151 @@
+html {
+  height: 300%;
+}
+
 body {
-  background: #006666;
+  background: linear-gradient(50deg, #006666, #00D4A4);
   font: 14px 'Roboto', sans-serif;
-  color: pink;
+  color: #D9931A;
   font-weight: 100px;
   text-align: center;
   text-shadow: 0 0 3px #FF0000, 0 0 5px #006666;
 }
 
+.containerIndex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 a {
   color: #00B7FF;
   font-size: 25px;
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
 a:hover {
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
+}
+
+.btn {
+  margin-top: 2rem;
 }
 
 h1.title {
   font-family: 'Monoton', cursive;
   font-size: 8rem;
-  color: pink;
+  color: #D64840;
   font-weight: 300;
   text-align: center;
   margin-bottom: inherit;
 }
 
+blockquote {
+  /* border-left:none */
+}
+
+.quote-badge {
+  background-color: #D64840;
+}
+
+.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+}
+
+.quote-box {
+  margin-bottom: 3rem;
+  overflow: hidden;
+  margin-top: -50px;
+  padding-top: -100px;
+  border-radius: 17px;
+  background-color: #D64840;
+  margin-top: 25px;
+  color: #FFFFFF;
+  width: 325px;
+  box-shadow: 2px 2px 2px 2px #D9931A;
+}
+
+.quotation-mark {
+  font-weight: bold;
+  font-size: 100px;
+  color: #FFFFFF;
+}
+
+.quote-text {
+  font-size: 1rem;
+  margin-top: -86px;
+}
+
 .claim {
   letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.buttonLog {
+  border-radius: 4px;
+  background-color: #1db954;
+  color: #FFFFFF;
+  text-align: center;
+  text-shadow: 0 0 3px #191414, 0 0 5px #006666;
+  font-size: 28px;
+  padding: 1rem;
+  transition: all 0.5s;
+}
+
+.buttonLog span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonLog span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.buttonLog:hover span {
+  padding-right: 25px;
+}
+
+.buttonLog:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 pre {
@@ -37,7 +153,6 @@ pre {
   color: pink;
   font-weight: 100px;
   text-align: center;
-  /* text-shadow: 0 0 3px #FF0000, 0 0 5px #006666; */
 }
 
 .userId {
@@ -51,29 +166,89 @@ pre {
 
 .titleSong {
   text-align: center;
+  font-size: 1rem;
 }
+
 .nameArtists {
   text-align: center;
   padding: 7px;
   letter-spacing: 0.3rem;
 }
 
-.lyrics {
-  padding: 50px;
-  display: inline-flex;
+.lyricsFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.lyricsTrans {
-  padding: 50px;
-  display: inline-flex;
-}
-
-.logout {
-  border-style: 2px groove;
-  border-color: white;
+.editProfile {
+  color: #D9931A;
+  letter-spacing: 0.3rem;
+  font-size: 1rem;
+  margin: 2rem;
 }
 
 .footer {
   display: inline-flex;
   letter-spacing: 0.2rem;
+  margin: 2rem;
+}
+
+.footerLyrics {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerProfile {
+  color: #FFFFFF;
+  letter-spacing: 0.3rem;
+  font-size: 1rem;
+  font-style: oblique;
+}
+
+.parpadea {
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes parpadeo {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes parpadeo {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
 }
