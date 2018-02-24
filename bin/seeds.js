@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Lyr-it');
 const User = require('../models/user.models.js');
 
-
 const userData = [
   { userName: 'Pocholo', email: 'mochila@ibiza.es', photos: '', country: 'ES', age: 55 }
 ];
