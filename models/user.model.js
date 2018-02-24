@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     unique: true
   },
   photos: {
-    type: String,
+    type: Array,
     required: false
   },
   country: {

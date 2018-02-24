@@ -34,7 +34,8 @@ module.exports.setup = (passport) => {
               country: profile.country,
               social: {
                 id: profile.id
-              }
+              },
+              photos: profile.photos
             });
           }
           user.social.accessToken = accessToken;
