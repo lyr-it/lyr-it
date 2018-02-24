@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const countries = require('../lib/countries');
 
 module.exports.index = (req, res, next) => {
   res.render('index');
@@ -31,14 +32,33 @@ module.exports.profile = (req, res, next) => {
 
 module.exports.update = (req, res, next) => {
   const userId = req.user.id;
-  const updates = {
-      name: req.body.userName,
-      country: req.body.country,
-      age: req.body.age
-  };
-console.log(userId)
-  User.findByIdAndUpdate(userId, updates).then((user) => {
-    console.log(user)
-    res.redirect('/profile');
+  const mycountry = req.body.country.toUpperCase();
+  let error = false;
+  let finalcountry;
+
+  countries.allCountries.forEach(function(element) {
+    let countryValue = Object.values(element).toString().toUpperCase();
+    if(Object.keys(element)==mycountry || countryValue==mycountry){
+      finalcountry = element;
+    }
   });
+  if(typeof(finalcountry)!=="undefined"){
+    const updates = {
+        name: req.body.userName,
+        country: Object.values(finalcountry),
+        age: req.body.age,
+        language: req.body.language
+    };
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+Object.values(finalcountry))
+    User.findByIdAndUpdate(userId, updates).then((user) => {
+      res.redirect('/profile');
+    });
+  }else{
+    res.render('profile',{
+    user: req.user,
+    errorMessage:"This country is not defined in our database."
+  });
+  }
+
+
 };

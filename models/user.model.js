@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema({
   age: {
     type: Number,
     required: false
+  },
+  language: {
+    type: String,
+    required: false
   }
 });
 
