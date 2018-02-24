@@ -3,6 +3,7 @@ const SpotifyStrategy = require('passport-spotify').Strategy;
 
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || '';
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET || '';
+const SPOTIFY_CB = process.env.SPOTIFY_CB || 'http://localhost:3000/callback';
 
 module.exports.setup = (passport) => {
 
@@ -21,7 +22,7 @@ module.exports.setup = (passport) => {
   passport.use('spotify', new SpotifyStrategy({
       clientID: SPOTIFY_CLIENT_ID,
       clientSecret: SPOTIFY_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3000/callback'
+      callbackURL: SPOTIFY_CB
     }, (accessToken, refreshToken, profile, next) => {
       console.log(profile);
       User.findOne({'social.id': profile.id })
