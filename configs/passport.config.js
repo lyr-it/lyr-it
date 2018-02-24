@@ -3,6 +3,7 @@ const SpotifyStrategy = require('passport-spotify').Strategy;
 
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || '';
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET || '';
+const SPOTIFY_CB = process.env.SPOTIFY_CB || 'http://localhost:3000/callback';
 
 module.exports.setup = (passport) => {
 
@@ -21,7 +22,7 @@ module.exports.setup = (passport) => {
   passport.use('spotify', new SpotifyStrategy({
       clientID: SPOTIFY_CLIENT_ID,
       clientSecret: SPOTIFY_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3000/callback'
+      callbackURL: SPOTIFY_CB
     }, (accessToken, refreshToken, profile, next) => {
       console.log(profile);
       User.findOne({'social.id': profile.id })
@@ -50,14 +51,3 @@ module.exports.setup = (passport) => {
     }));
 
 }
-
-    // function(accessToken, refreshToken, expires_in, profile, done) {
-    //   // asynchronous verification, for effect...
-    //   process.nextTick(function() {
-    //     // To keep the example simple, the user's spotify profile is returned to
-    //     // represent the logged-in user. In a typical application, you would want
-    //     // to associate the spotify account with a user record in your database,
-    //     // and return that user instead.
-    //     return done(null, profile);
-    //   });
-    // }));
