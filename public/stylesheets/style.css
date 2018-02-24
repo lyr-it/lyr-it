@@ -122,7 +122,6 @@ blockquote {
   font-size: 28px;
   padding: 1rem;
   transition: all 0.5s;
-  /* margin: 2rem; */
 }
 
 .buttonLog span {
@@ -176,9 +175,10 @@ pre {
   letter-spacing: 0.3rem;
 }
 
-.logout {
-  /* border-style: 2px groove;
-  border-color: #FFFFFF; */
+.lyricsFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .editProfile {
@@ -197,4 +197,58 @@ pre {
 .footerLyrics {
   display: flex;
   flex-direction: column;
+}
+
+.footerProfile {
+  color: #FFFFFF;
+  letter-spacing: 0.3rem;
+  font-size: 1rem;
+  font-style: oblique;
+}
+
+.parpadea {
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes parpadeo {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes parpadeo {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
 }
