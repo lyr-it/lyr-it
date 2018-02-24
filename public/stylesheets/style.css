@@ -1,7 +1,11 @@
+html {
+  height:100%;
+}
+
 body {
-  background: #006666;
+  background: linear-gradient(50deg, #006666, #00D4A4);
   font: 14px 'Roboto', sans-serif;
-  color: pink;
+  color: 	#D9931A;
   font-weight: 100px;
   text-align: center;
   text-shadow: 0 0 3px #FF0000, 0 0 5px #006666;
@@ -10,19 +14,21 @@ body {
 a {
   color: #00B7FF;
   font-size: 25px;
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
 a:hover {
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
 }
-
+.cassette {
+  display: inline-block;
+}
 h1.title {
   font-family: 'Monoton', cursive;
   font-size: 8rem;
-  color: pink;
+  color: 	#D64840;
   font-weight: 300;
   text-align: center;
   margin-bottom: inherit;
@@ -30,6 +36,43 @@ h1.title {
 
 .claim {
   letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.buttonLog {
+  border-radius: 4px;
+  background-color: #1db954;
+  color: #FFFFFF;
+  text-align: center;
+  text-shadow: 0 0 3px #191414, 0 0 5px #006666;
+  font-size: 28px;
+  padding: 1rem;
+  transition: all 0.5s;
+  margin: 2rem;
+}
+
+.buttonLog span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonLog span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.buttonLog:hover span {
+  padding-right: 25px;
+}
+
+.buttonLog:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 pre {
@@ -52,6 +95,7 @@ pre {
 .titleSong {
   text-align: center;
 }
+
 .nameArtists {
   text-align: center;
   padding: 7px;
@@ -69,11 +113,12 @@ pre {
 }
 
 .logout {
-  border-style: 2px groove;
-  border-color: white;
+  /* border-style: 2px groove;
+  border-color: #FFFFFF; */
 }
 
 .footer {
   display: inline-flex;
   letter-spacing: 0.2rem;
+  margin: 2rem;
 }
