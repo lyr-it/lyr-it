@@ -5,7 +5,7 @@ module.exports.index = (req, res, next) => {
   res.render('index');
 };
 
-module.exports.lyrics = (req,res,next) => {
+module.exports.lyrics = (req, res, next) => {
   const user = req.user;
   if (user) {
     user.getCurrentSongs((error, currentSong) => {
@@ -25,7 +25,7 @@ module.exports.lyrics = (req,res,next) => {
 module.exports.profile = (req, res, next) => {
   const user = req.user;
   console.log(user.id)
-  res.render('profile',{
+  res.render('profile', {
     user
   });
 }
@@ -38,27 +38,24 @@ module.exports.update = (req, res, next) => {
 
   countries.allCountries.forEach(function(element) {
     let countryValue = Object.values(element).toString().toUpperCase();
-    if(Object.keys(element)==mycountry || countryValue==mycountry){
+    if (Object.keys(element) == mycountry || countryValue == mycountry) {
       finalcountry = element;
     }
   });
-  if(typeof(finalcountry)!=="undefined"){
+  if (typeof(finalcountry) !== "undefined") {
     const updates = {
-        name: req.body.userName,
-        country: Object.values(finalcountry),
-        age: req.body.age,
-        language: req.body.language
+      name: req.body.userName,
+      country: Object.values(finalcountry),
+      age: req.body.age,
+      language: req.body.language
     };
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+Object.values(finalcountry))
     User.findByIdAndUpdate(userId, updates).then((user) => {
       res.redirect('/profile');
     });
-  }else{
-    res.render('profile',{
-    user: req.user,
-    errorMessage:"This country is not defined in our database."
-  });
+  } else {
+    res.render('profile', {
+      user: req.user,
+      errorMessage: "This country is not defined in our database."
+    });
   }
-
-
 };
