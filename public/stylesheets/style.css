@@ -1,46 +1,149 @@
-html {
-  height: 300%;
+.lyrit__content{
+  background: #2C3E50;;
 }
 
-body {
-  background: linear-gradient(120deg, #006666, #00D4A4);
-  font: 14px 'Roboto', sans-serif;
-  color: #D9931A;
-  font-weight: 100px;
-  text-align: center;
-  text-shadow: 0 0 3px #FF0000, 0 0 5px #006666;
+.lyrit__head,.lyrit__footer {
+  background: #2C3E50;
+  padding: 0 15px;
+}
+.lyrit__footer{
+  padding:15px;
 }
 
-a {
-  color: #00B7FF;
-  font-size: 25px;
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-.containerIndex {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-
-.btn {
-  margin-top: 2rem;
-}
-
-h1.title {
+.lyrit__title {
   font-family: 'Monoton', cursive;
-  font-size: 8rem;
-  color: #D64840;
-  font-weight: 300;
+  font-size: 5rem;
+  color: #FF5733;
   text-align: center;
-  margin-bottom: inherit;
+}
+.lyrit__txt{
+  text-align: center;
+  color:#B2BABB;
+  font-family: 'Roboto', sans-serif;
+}
+
+.lyrit__txt--info{
+  font-size: 18px;
+  font-style: italic;
+  padding: 30px 15px;
+}
+.lyrit__form{
+  margin:15px 0 0;
+}
+.lyrit__group{
+  background: #34495E;
+  min-height: 29rem;
+}
+.lyrit__content--info{
+  text-align: center;
+  margin: 30px 0;
+}
+.lyrit__group--txt{
+  display: block;
+  vertical-align: middle;
+  text-align: center;
+}
+.lyrit__link{
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  margin: 30px 0 15px;
+  width: auto;
+  display: block;
+}
+.lyrit__btns{
+  margin-top: 30px;
+  text-align: center;
+}
+.lyrit__btn{
+  color:#fff;
+  padding:15px;
+  margin-left: 15px;
+  background: #FF5733;
+  border-radius: 10px;
+  border: 0;
+  height: 2rem;
+}
+.lyrit__error{
+  color: red;
+  font-size: 16px;
+  margin-top: 15px; 
+}
+.lyrit__form--btn{
+  padding: 0 6px;
+  height: 3rem;
+  width: 60%;
+}
+.lyrit__btn:active, .lyrit__btn:hover{
+  color: #fff;
+  background: rgb(250, 54, 14);
+  text-decoration: none;
+}
+
+.lyrit__btn:first-child{
+  margin-left: 0;
+}
+
+.lyrit__img{
+  vertical-align: middle;
+  border-style: none;
+  border-radius: 150px;
+  border: 5px solid #FF5733;
+  width: 50%;
+}
+
+.lyrit__subtitle{
+  color:#B2BABB;
+  width: auto;
+}
+
+.lyrit__footer{
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+.lyrit__footer--txt{
+  margin:0;
+}
+
+@media (min-width: 768px){
+  .lyrit__img{
+    width: 100%;
+  }
+  .lyrit__group--txt{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 30px;
+    text-align: left;
+  }
+  .lyrit__link{
+    display: inline-block;
+    margin: 0;
+    width: 25%;
+  }
+  .lyrit__btns{
+    text-align: left;
+  }
+  .lyrit__form--btn{
+    width: 29%;
+  }
+}
+
+@media (min-width: 1024px){
+  .lyrit__link{
+    width: 17%;
+  }
+  .lyrit__group{
+    min-height: 42rem;
+  }
+  .lyrit__txt--info{
+    font-size: 1.5rem;
+  }
+  .lyrit__form--btn{
+    width: 18%;
+  }
 }
 
 .quote-badge {
@@ -84,14 +187,12 @@ h1.title {
 .quote-box {
   margin-bottom: 3rem;
   overflow: hidden;
-  margin-top: -50px;
-  padding-top: -100px;
   border-radius: 17px;
-  background-color: #D64840;
+  background-color: rgba(0, 0, 0, 0.1);
   margin-top: 25px;
   color: #FFFFFF;
-  width: 325px;
-  box-shadow: 2px 2px 2px 2px #D9931A;
+  box-shadow: 2px 2px 2px 2px #FF5733;
+  padding: 0 15px;
 }
 
 .quotation-mark {
@@ -103,149 +204,4 @@ h1.title {
 .quote-text {
   font-size: 1rem;
   margin-top: -86px;
-}
-
-.claim {
-  letter-spacing: 0.3rem;
-  margin-bottom: 2rem;
-}
-
-.buttonLog {
-  border-radius: 4px;
-  background-color: #1db954;
-  color: #FFFFFF;
-  text-align: center;
-  text-shadow: 0 0 3px #191414, 0 0 5px #006666;
-  font-size: 28px;
-  padding: 1rem;
-  transition: all 0.5s;
-}
-
-.buttonLog span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.buttonLog span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  transition: 0.5s;
-}
-
-.buttonLog:hover span {
-  padding-right: 25px;
-}
-
-.buttonLog:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-pre {
-  font: 14px 'Roboto', sans-serif;
-  color: pink;
-  font-weight: 100px;
-  text-align: center;
-}
-
-.userId {
-  font-size: 50px;
-  text-shadow: 0 0 3px #FF0000, 0 0 5px #006666;
-}
-
-.contaier {
-  text-align: center;
-}
-
-.titleSong {
-  text-align: center;
-  font-size: 1rem;
-}
-
-.nameArtists {
-  text-align: center;
-  padding: 7px;
-  letter-spacing: 0.3rem;
-}
-
-.lyricsFlex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.editProfile {
-  color: #D9931A;
-  letter-spacing: 0.3rem;
-  font-size: 1rem;
-  margin: 2rem;
-}
-
-.footer {
-  display: inline-flex;
-  letter-spacing: 0.2rem;
-  margin: 2rem;
-}
-
-.footerLyrics {
-  display: flex;
-  flex-direction: column;
-}
-
-.footerProfile {
-  color: #FFFFFF;
-  letter-spacing: 0.3rem;
-  font-size: 1rem;
-  font-style: oblique;
-}
-
-.parpadea {
-  animation-name: parpadeo;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: parpadeo;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-}
-
-@-moz-keyframes parpadeo {
-  0% {
-    opacity: 1.0;
-  }
-  50% {
-    opacity: 0.0;
-  }
-  100% {
-    opacity: 1.0;
-  }
-}
-
-@-webkit-keyframes parpadeo {
-  0% {
-    opacity: 1.0;
-  }
-  50% {
-    opacity: 0.0;
-  }
-  100% {
-    opacity: 1.0;
-  }
-}
-
-@keyframes parpadeo {
-  0% {
-    opacity: 1.0;
-  }
-  50% {
-    opacity: 0.0;
-  }
-  100% {
-    opacity: 1.0;
-  }
 }

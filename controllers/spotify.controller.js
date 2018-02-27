@@ -25,7 +25,6 @@ module.exports.lyrics = (req, res, next) => {
 
 module.exports.profile = (req, res, next) => {
   const user = req.user;
-  console.log(user.id)
   res.render('profile', {
     user
   });
@@ -51,7 +50,7 @@ module.exports.update = (req, res, next) => {
       language: req.body.language
     };
     User.findByIdAndUpdate(userId, updates).then((user) => {
-      res.redirect('/profile');
+      res.redirect('/lyrics');
     });
   } else {
     res.render('profile', {
