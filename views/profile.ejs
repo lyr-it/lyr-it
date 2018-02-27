@@ -1,59 +1,63 @@
-
-<div class="row">
-  <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-    <h2>Edit your Profile</h2>
+<div class="lyrit__group">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form class="lyrit__form" action="/profile" method="post">
+            <div class="form-row">
+              <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <label class="lyrit__txt" for="userName">Username</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                  </div>
+                  <input type="text" name="userName" class="form-control" id="userName" value="<%=user.name%>" aria-describedby="inputGroupPrepend2"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <label class="lyrit__txt" for="country">Country</label>
+                <input type="text" name="country" class="form-control" id="country" value="<%=(user.country)%>" required>
+                <% if(typeof(errorMessage)!=='undefined'){ %>
+                  <div class="col-12">
+                    <p class="lyrit__error text-center">
+                      <%= errorMessage %>
+                    </p>
+                  </div>
+                  <% } %>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <label class="lyrit__txt" for="age">Age</label>
+                <input type="number" name="age" class="form-control" id="age" value="<%=user.age%>">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <label class="lyrit__txt" for="language">Language</label>
+                <select class="custom-select my-1 mr-sm-2" id="language" name="language">
+                  <option value="ES">Spanish</option>
+                  <option value="EN">English</option>
+                  <option value="IT">Italian</option>
+                  <option value="FR">French</option>
+                  <option value="DE">German</option>
+                  <option value="JA">Japanese</option>
+                  <option value="ZH">Chino</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="lyrit__btns text-center">
+                  <button class="lyrit__btn lyrit__form--btn" type="submit">Submit form</button>
+                  <a href="/lyrics" class="lyrit__btn"> Cancel </a>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
-<form action="/profile" method="post">
-  <div>
-    <div class="form-row">
-      <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-        <label for="userName">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend2">@</span>
-          </div>
-          <input type="text" name="userName" class="form-control" id="userName" value="<%=user.name%>" aria-describedby="inputGroupPrepend2" required>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-        <label for="country">Country</label>
-        <input type="text" name="country" class="form-control" id="country" value="<%=(user.country)%>" required>
-        <% if(typeof(errorMessage)!=='undefined'){ %>
-          <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-            <p class="border border-danger"><%= errorMessage %></p>
-          </div>
-        <% } %>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-        <label for="age">Age</label>
-        <input type="number" name="age" class="form-control" id="age" value="<%=user.age%>">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-        <label for="language">Language</label>
-        <select class="custom-select my-1 mr-sm-2" id="language" name="language">
-          <option value="ES">Español</option>
-          <option value="EN">Inglés</option>
-          <option value="IT">Italiano</option>
-          <option value="FR">Francés</option>
-          <option value="DE">Alemán</option>
-          <option value="AF">Africano</option>
-          <option value="ZH">Chino</option>
-        </select>
-      </div>
-    </div>
-
-    <div>
-      <button class="btn btn-primary" type="submit">Submit form</button>
-    </div>
-    <div>
-        <a href="/lyrics" class="footerProfile"><span class="parpadea text">...And go back to the lyrics</span></a>
-    </div>
-  </div>
-</form>

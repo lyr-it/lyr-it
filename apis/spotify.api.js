@@ -12,36 +12,34 @@ module.exports.currentPlaying = (user, next) => {
       'bearer': accessToken
     }
   }, (error, res, song) => {
-    if (error) {
-      throw new Error(error)
-    }
-    console.log("Si el console.log esta vacio seria de 0 y es de: " + song.length)
-    if (song.length !== 0 && !song.error) {
+    if(song.length!==0){
       const track = JSON.parse(song);
-      const currentSong = {
-        nameArtists: track.item.artists[0].name,
-        nameSong: track.item.name
-      }
-
-//lyrics
-      apiLyric.get(currentSong.nameArtists, currentSong.nameSong, function(err, res) {
-        if (err) {
-          console.log(err);
-        } else {
-          let language = user.language;
-          currentSong.lyricSong = res;
-          const textLyric = currentSong.lyricSong.toString();
-          translate(textLyric, {
-            to: language
-          }).then(text => {
-            currentSong.translateLyricSong = text;
-            next(null, currentSong);
-          });
+      if (track.is_playing) {
+        const currentSong = {
+          nameArtists: track.item.artists[0].name,
+          nameSong: track.item.name
         }
-      });
-    } else {
-      console.log("El tipo de currentSong es: " + typeof(currentSong))
-      next(null, currentSong)
-    }
+
+  //lyrics
+        apiLyric.get(currentSong.nameArtists, currentSong.nameSong, function(err, res) {
+          if (err) {
+            console.log(err);
+            next()
+          } else {
+            let language = user.language;
+            currentSong.lyricSong = res;
+            const textLyric = currentSong.lyricSong.toString();
+            translate(textLyric, {
+              to: language
+            }).then(text => {
+              currentSong.translateLyricSong = text;
+              next(null, currentSong);
+            });
+          }
+        });
+      } else {
+        next(null, currentSong)
+      }
+    }else{next()}
   });
 }

@@ -24,7 +24,6 @@ module.exports.setup = (passport) => {
       clientSecret: SPOTIFY_CLIENT_SECRET,
       callbackURL: SPOTIFY_CB
     }, (accessToken, refreshToken, profile, next) => {
-      console.log(profile);
       User.findOne({'social.id': profile.id })
         .then(user => {
           if (!user) {

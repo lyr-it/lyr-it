@@ -1,32 +1,49 @@
-<div class="containerLyrics">
-  <p class="claim">The best way to learn new languages</p>
-  <% if (session.name) { %>
-    
-    <a href=""><img class="rounded-circle" src="<%= user.photos %>" alt=""></a>
-    <p class="userId">Hello
-      <%= session.name %>
-    </p>
-    <% if (typeof(currentSong) !== 'undefined') { %>
-      <div class="titleSong">
-        <p class="nameArtists"><i>You're listening to...</i>
-          <%= currentSong.nameArtists %>,
-            <%= currentSong.nameSong %>
-        </p>
-      </div>
-      <div class="row justify-content-between">
-        <div class="col-6">
-          <pre><%= currentSong.lyricSong %></pre>
-        </div>
-        <div class="col-6">
-          <pre><%= currentSong.translateLyricSong %></pre>
-        </div>
-      </div>
-      </div>
-      <% } %>
-        <% } else { %>
-          <p>user disconected</p>
-          <% } %>
-          <div class="footerLyrics">
-            <a href="/profile" class="editProfile"> Edit your profile </a>
-            <a href="/logout" class="logout">Logout</a>
+<div class="lyrit__group">
+  <div class="container">
+    <% if (session.name) { %>
+    <div class="row">
+      <div class="col-12">
+        <div class="lyrit__content--info">
+          <a class="lyrit__link" href="/profile">
+            <img class="lyrit__img" src="<%= user.photos %>" alt="imagen perfil">
+          </a>
+          <div class="lyrit__group--txt">
+            <p class="lyrit__subtitle">Hello
+              <%= session.name %>
+            </p>
+            <% if (typeof(currentSong) !== 'undefined') { %>
+              <p class="lyrit__subtitle">
+                You're listening to...
+                <span>
+                  <%= currentSong.nameArtists %>,
+                  <%= currentSong.nameSong %>
+                </span>
+              </p>
+            <% } %>
+              <div class="lyrit__btns">
+                <a href="/profile" class="lyrit__btn"> Edit your profile </a>
+                <a href="/logout" class="lyrit__btn">Logout</a>
+              </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <% if (typeof(currentSong) !== 'undefined') { %>
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-6">
+          <div>
+            <pre class="lyrit__txt text-left"><%= currentSong.lyricSong %></pre>            
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div>
+            <pre class="lyrit__txt text-left"><%= currentSong.translateLyricSong %></pre>
+          </div>
+        </div>
+      </div>
+    <% } %>
+    <% } else { %>
+      <p>user disconected</p>
+    <% } %>
+  </div>
+</div>
